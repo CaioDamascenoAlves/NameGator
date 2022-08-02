@@ -21,7 +21,7 @@
 												{{prefix}}
 											</div>
 											<div class="col-md text-end">
-												<button class="btn btn-danger" v-on-click="deletePrefix(prefix)"><span class="fa fa-trash"></span></button>
+												<button class="btn btn-danger" v-on:click="deletePrefix(prefix)"><span class="fa fa-trash"></span></button>
 											</div>
 										</div>
 									</li>
@@ -47,7 +47,7 @@
 												{{sufix}}
 											</div>
 											<div class="col-md text-end">
-												<button class="btn btn-danger" v-on-click="deleteSufix(sufix)"><span class="fa fa-trash"></span></button>
+												<button class="btn btn-danger" v-on:click="deleteSufix(sufix)"><span class="fa fa-trash"></span></button>
 											</div>
 										</div>
 									</li>
@@ -99,6 +99,8 @@ export default {
 	},
 	deletePrefix(prefix){
 		this.prefixes.splice(this.prefixes.indexOf(prefix), 1);
+		this.generate();
+
 	},
 	addSufix(sufix) {
 		this.sufixes.push(sufix);
@@ -107,6 +109,7 @@ export default {
 	},
 	deleteSufix(sufix){
 		this.sufixes.splice(this.sufixes.indexOf(sufix), 1);
+		this.generate();
 
 	},
 	generate(){
