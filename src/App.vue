@@ -11,7 +11,7 @@
 			<div class="conteiner">
 				<div class="row">
 					<div class="col-md">
-						<h5>Prefixos<span class="badge text-bg-primary">{{prefixes.length}}</span></h5>
+						<h5>Prefixos <span class="badge text-bg-primary">{{prefixes.length}}</span></h5>
 						<div class="card">
 							<div class="card-body">
 								<ul class="list-group">
@@ -20,7 +20,12 @@
 									</li>
 								</ul>
 								<br>
-								<input class="form-control" type="text" placeholder="Digite o prefixo">
+								<div class="input-group">
+									<input class="form-control" type="text" placeholder="Digite o prefixo">		
+									<div class="input-group-append">
+										<button class="btn btn-success" v-on:click="addPrefix()"><span class="fa fa-plus"></span></button>
+									</div>
+								</div>
 							</div>
 						</div>		
 					</div>
@@ -34,13 +39,18 @@
 									</li>
 								</ul>
 								<br>
-								<input class="form-control" type="text" placeholder="Digite o sufixo">
+								<div class="input-group">
+									<input class="form-control" type="text" placeholder="Digite o sufixo">		
+									<div class="input-group-append">
+										<button class="btn btn-success" v-on:click="addSufix()"><span class="fa fa-plus"></span></button>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<br>
-				<h5>Domínios<span class="badge text-bg-primary">{{domains.length}}</span></h5>
+				<h5>Domínios <span class="badge text-bg-primary">{{domains.length}}</span></h5>
 				<div class="card">
 					<div class="card-body">
 						<ul class="list-group">
