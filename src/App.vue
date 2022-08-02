@@ -21,7 +21,7 @@
 								</ul>
 								<br>
 								<div class="input-group">
-									<input class="form-control" type="text" v-model="prefix" placeholder="Digite o prefixo">		
+									<input class="form-control" type="text" v-model="prefix" v-on:keyup.enter="addPrefix(prefix)" placeholder="Digite o prefixo">		
 									<div class="input-group-append">
 										<button class="btn btn-success" v-on:click="addPrefix(prefix)"><span class="fa fa-plus"></span></button>
 									</div>
@@ -40,7 +40,7 @@
 								</ul>
 								<br>
 								<div class="input-group">
-									<input class="form-control" type="text"  v-model="sufix" placeholder="Digite o sufixo">		
+									<input class="form-control" type="text"  v-model="sufix" v-on:keyup.enter="addSufix(sufix)" placeholder="Digite o sufixo">		
 									<div class="input-group-append">
 										<button class="btn btn-success" v-on:click="addSufix(sufix)"><span class="fa fa-plus"></span></button>
 									</div>
@@ -81,10 +81,19 @@ export default {
 	addPrefix(prefix){
 		this.prefixes.push(prefix);
 		this.prefix = "";
+		this.generate();
 	},
 	addSufix(sufix) {
 		this.sufixes.push(sufix);
 		this.sufix = "";
+		this.generate();
+	},
+	generate(){
+		this.domains = [];
+		for(const prefix of this.prefixes){
+			for(const sufix of this.sufixes)
+			this.domains.push( prefix + sufix );
+		}
 	}
   }
 }
